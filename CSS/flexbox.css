@@ -1,0 +1,259 @@
+
+/* =========================================================
+   flexbox.css — PARTE 1: Flexbox
+   Organização dos elementos da loja Mon Amour
+   ========================================================= */
+
+
+/* ---------- 1. TOPO: logo | menu | botão ---------- */
+/* .topo, .topo-conteudo, .menu */
+
+.topo {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rosa-claro);
+}
+
+.topo-conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.menu a {
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.menu a:hover {
+    color: var(--rosa-escuro);
+}
+
+
+/* ---------- 2. HERO: texto | imagem ---------- */
+/* .hero-conteudo, .hero-texto, .hero-imagem, .hero-botoes */
+
+.hero {
+    padding: 5rem 0;
+}
+
+.hero-conteudo {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.hero-texto {
+    flex: 1 1 50%;
+}
+
+.hero-texto h2 {
+    margin-bottom: 1.4rem;
+}
+
+.hero-descricao {
+    max-width: 480px;
+    margin-bottom: 2rem;
+}
+
+.hero-botoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.hero-imagem {
+    flex: 1 1 42%;
+}
+
+.hero-imagem img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 200px 200px var(--raio) var(--raio);
+    box-shadow: 0 20px 40px rgba(189, 120, 141, 0.15);
+}
+
+
+/* ---------- 3. CATEGORIAS E PRODUTOS ---------- */
+/* .categorias, .card-categoria, .produtos, .card-produto */
+
+.categorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.card-categoria {
+    position: relative;
+    flex: 1 1 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    text-align: center;
+}
+
+.card-categoria img {
+    width: 100%;
+    height: 17rem;
+    object-fit: cover;
+    border-radius: var(--raio);
+}
+
+.card-categoria h3 {
+    color: var(--marrom);
+}
+
+.produtos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.card-produto {
+    flex: 1 1 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    transition: transform 0.25s;
+}
+
+.card-produto:hover {
+    transform: translateY(-6px);
+}
+
+.card-produto img {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: var(--raio);
+}
+
+.produto-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.produto-preco {
+    color: var(--rosa-escuro);
+    font-weight: 700;
+}
+
+
+/* ---------- 4. DESTAQUE DA COLEÇÃO ---------- */
+/* .destaque, .destaque-texto, .destaque-imagem */
+
+.destaque {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.destaque-texto {
+    flex: 1;
+}
+
+.destaque-imagem {
+    flex: 1;
+}
+
+.destaque-imagem img {
+    width: 100%;
+    border-radius: var(--raio);
+}
+
+
+/* ---------- 5. RODAPÉ ---------- */
+/* .rodape-conteudo, .rodape-marca, .rodape-contato, .rodape-links */
+
+.rodape {
+    background: var(--nude);
+    padding-top: 4rem;
+    border-top: 1px solid var(--rosa-claro);
+}
+
+.rodape-conteudo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2.5rem;
+    padding-bottom: 3rem;
+}
+
+.rodape-marca {
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.rodape-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0.92rem;
+}
+
+.rodape-contato a:hover,
+.rodape-links a:hover {
+    color: var(--rosa-escuro);
+}
+
+.rodape-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    font-size: 0.92rem;
+}
+
+.rodape-copy {
+    text-align: center;
+    padding: 1.4rem;
+    border-top: 1px solid var(--rosa-claro);
+    font-size: 0.8rem;
+}
+
+
+/* ---------- 6. RESPONSIVIDADE ---------- */
+
+@media (max-width: 768px) {
+
+    .topo-conteudo {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .hero-conteudo,
+    .destaque {
+        flex-direction: column;
+    }
+
+    .hero-texto,
+    .hero-imagem,
+    .destaque-texto,
+    .destaque-imagem {
+        width: 100%;
+    }
+
+}
